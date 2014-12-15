@@ -44,21 +44,6 @@ always_comb ptr2 = (ptr1 + run[31:23]) % 48;
 always_comb data = mem[ptr2];
 always_comb dat = data[ptr0];
 
-/*
-logic [95:0] data;
-
-always_ff @(posedge clk)
-    if (~run[17])
-        case(run[25:24])
-            0: data <= 96'h ff0000_00ff00_0000ff_ffffff; // GRB
-            1: data <= 96'h 00ff00_0000ff_ffffff_ff0000; // GRB
-            2: data <= 96'h 0000ff_ffffff_ff0000_00ff00; // GRB
-            3: data <= 96'h ffffff_ff0000_00ff00_0000ff; // GRB
-        endcase
-    else if (tick)
-        data <= {data[94:0], data[95]};
-*/
-
 logic [15:0] timer0, nxt_timer0;
 
 always_ff @(posedge clk) timer0 <= nxt_timer0;
